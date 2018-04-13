@@ -14,12 +14,13 @@ using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
 using System.Threading;
-using System.Text.RegularExpressions;
+using System.Text.RegularExpressions; 
 
 namespace Shadowsocks.View
 {
-    public class MenuViewController
+    public  class MenuViewController
     {
+        
         // yes this is just a menu view controller
         // when config form is closed, it moves away from RAM
         // and it should just do anything related to the config form
@@ -58,11 +59,18 @@ namespace Shadowsocks.View
         private string _urlToOpen;
         private System.Timers.Timer timerDelayCheckUpdate;
 
+
+
+
+
+
+
         public MenuViewController(ShadowsocksController controller)
         {
             this.controller = controller;
 
             LoadMenu();
+
 
             controller.ToggleModeChanged += controller_ToggleModeChanged;
             controller.ToggleRuleModeChanged += controller_ToggleRuleModeChanged;
@@ -280,7 +288,18 @@ namespace Shadowsocks.View
                 CreateMenuItem("Quit", new EventHandler(this.Quit_Click))
             });
             this.UpdateItem.Visible = false;
+
+
+            //load global short cut key： //by Guodao Sun
+
+
+            // HotKeys ab = new HotKeys(); 
+            GlobalKeyForm gkf = new GlobalKeyForm(controller);
+            //gkf.Show();
+            
+
         }
+         
 
         private void controller_ConfigChanged(object sender, EventArgs e)
         {
