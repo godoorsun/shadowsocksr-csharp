@@ -1,5 +1,4 @@
 ShadowsocksR for Windows
-
 =======================
 
 [![Build Status]][Appveyor]
