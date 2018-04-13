@@ -1,4 +1,6 @@
 ShadowsocksR for Windows
+add a global hotkey (CTRL+F12) to switch among Direct mode, PAC mode and Global Mode.
+在原版基础上，添加CTRL+F12这一快捷键，在三个代理模式中切换
 =======================
 
 [![Build Status]][Appveyor]
