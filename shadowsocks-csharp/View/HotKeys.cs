@@ -34,8 +34,11 @@ namespace Shadowsocks.View
 
            
             int id = keyid++;
+
             if (!RegisterHotKey(hWnd, id, modifiers, vk))
-                throw new Exception("注册失败！");
+                MessageBox.Show("快捷键Ctrl+F12已经被占用！");
+                return;
+                //throw new Exception("注册失败！");  throw会直接抛给操作系统；
             keymap[id] = callBack;
         }
 
