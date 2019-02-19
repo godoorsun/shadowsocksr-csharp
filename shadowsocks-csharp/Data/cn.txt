@@ -28,6 +28,7 @@ Allow Clients from LAN=允许来自局域网的连接
 Load balance=服务器负载均衡
 Same host for same address=优先相同节点连接同一地址
 Enable domain white list(http proxy only)=使用域名白名单(仅http代理)
+Update local PAC from User Defined List=更新PAC为用户自定义的列表
 Update local PAC from Lan IP list=更新PAC为绕过局域网IP
 Update local PAC from Chn White list=更新PAC为绕过大陆常见域名列表
 Update local PAC from Chn IP list=更新PAC为绕过大陆IP(慎用)

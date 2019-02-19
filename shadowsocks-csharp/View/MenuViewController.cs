@@ -229,6 +229,8 @@ namespace Shadowsocks.View
                     noModifyItem = CreateMenuItem("No modify system proxy", new EventHandler(this.NoModifyItem_Click))
                 }),
                 CreateMenuGroup("PAC ", new MenuItem[] {
+                    CreateMenuItem("Update local PAC from User Defined List", new EventHandler(this.UpdatePACFromUserDefinedListItem_Click)),
+                    new MenuItem("-"),
                     CreateMenuItem("Update local PAC from Lan IP list", new EventHandler(this.UpdatePACFromLanIPListItem_Click)),
                     new MenuItem("-"),
                     CreateMenuItem("Update local PAC from Chn White list", new EventHandler(this.UpdatePACFromCNWhiteListItem_Click)),
@@ -1068,10 +1070,20 @@ namespace Shadowsocks.View
             controller.UpdatePACFromGFWList();
         }
 
+
+        private void UpdatePACFromUserDefinedListItem_Click(object sender, EventArgs e)
+        {
+
+            string text = System.IO.File.ReadAllText("pac-url.ini");
+
+            controller.UpdatePACFromOnlinePac(text);
+        }
+
         private void UpdatePACFromLanIPListItem_Click(object sender, EventArgs e)
         {
             controller.UpdatePACFromOnlinePac("https://raw.githubusercontent.com/breakwa11/breakwa11.github.io/master/ssr/ss_lanip.pac");
         }
+
 
         private void UpdatePACFromCNWhiteListItem_Click(object sender, EventArgs e)
         {
