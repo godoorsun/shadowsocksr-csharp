@@ -61,6 +61,18 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>ADF40F5C0FC659D3DEC8DB025320979894A9F736</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>shadowsocks-csharp_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -295,6 +307,8 @@
     <None Include="Data\libsscrypto64.dll.gz" />
     <None Include="Data\mgwz.dll.gz" />
     <None Include="Data\privoxy.exe.gz" />
+    <None Include="shadowsocks-csharp_1_TemporaryKey.pfx" />
+    <None Include="shadowsocks-csharp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\proxy.pac.txt.gz" />

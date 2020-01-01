@@ -64,10 +64,10 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4A922898E7E518837AD2D181625224F999227BDC</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>70133AC87B2082C04CF2B3117DA40BA13E5D4588</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>shadowsocks-csharp4.0_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>shadowsocks-csharp4.0_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -308,6 +308,7 @@
     <None Include="Data\libsscrypto.dll.gz" />
     <None Include="Data\mgwz.dll.gz" />
     <None Include="Data\privoxy.exe.gz" />
+    <None Include="shadowsocks-csharp4.0_1_TemporaryKey.pfx" />
     <None Include="shadowsocks-csharp4.0_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

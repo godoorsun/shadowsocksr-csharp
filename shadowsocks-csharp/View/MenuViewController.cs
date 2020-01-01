@@ -298,10 +298,14 @@ namespace Shadowsocks.View
             // HotKeys ab = new HotKeys(); 
             GlobalKeyForm gkf = new GlobalKeyForm(controller);
             //gkf.Show();
-            
+
+
+          //  System.Timers.Timer autoUpdate = new System.Timers.Timer();
+
+
 
         }
-         
+
 
         private void controller_ConfigChanged(object sender, EventArgs e)
         {
@@ -467,6 +471,25 @@ namespace Shadowsocks.View
                         }
                     }
 
+
+
+                    //load servers that should be excluded from file excluded-servers.ini
+
+                    
+                    string[] excluded_parts = { "alsjflawjglajwelfjawlfjlawjfajwefljlgawefaefuoioio" }; // magic string: in case no server will match to this exlcuded string .
+                    String excludedFilePath = "excluded-servers.ini";
+                    if (System.IO.File.Exists(excludedFilePath))
+                    {
+                        string text = System.IO.File.ReadAllText(excludedFilePath);
+                        excluded_parts = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                        foreach (string ep in excluded_parts)
+                        {
+                            Debug.WriteLine(ep);
+                        }
+                    }
+
+                    
+                    
                     // import all, find difference
                     {
                         Dictionary<string, Server> old_servers = new Dictionary<string, Server>();
@@ -484,7 +507,23 @@ namespace Shadowsocks.View
                         {
                             try
                             {
-                                Server server = new Server(url, curGroup);
+                                Server server = new Server(url, curGroup);  //url is ssurl or ssrurl
+
+                                //Debug.WriteLine(server.server);
+                                //Debug.WriteLine(server.remarks);
+
+                                bool isExcluded = false;
+                                foreach (string ep in excluded_parts)
+                                {
+                                    if (server.remarks.Contains(ep) || server.server.Contains(ep))
+                                        isExcluded = true;
+                                }
+                                if (isExcluded) {
+                                    Debug.WriteLine("Exclude: " + server.remarks + "\t " + server.server);
+                                    continue;
+                                }
+
+
                                 bool match = false;
                                 foreach (KeyValuePair<string, Server> pair in old_servers)
                                 {
@@ -499,6 +538,7 @@ namespace Shadowsocks.View
                                 }
                                 if (!match)
                                 {
+                                    
                                     config.configs.Add(server);
                                     ++count;
                                 }
