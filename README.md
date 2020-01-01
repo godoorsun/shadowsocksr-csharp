@@ -3,8 +3,12 @@ ShadowsocksR for Windows
 
 [![Build Status]][Appveyor]
 
-#### add a global hotkey (CTRL+F12) to switch among Direct mode, PAC mode and Global Mode.
-在原版基础上，添加CTRL+F12这一快捷键，在三个代理模式中切换; 加入 pac-url.ini，用户可以从自定义的地址更新pac。
+#### 在原版基础上，添加如下功能：
+* **添加代理模式切换的快捷键（**默认CTRL+F12），在三个代理模式中切换。
+* **自定义pac地址**： 在ShadowsocksR.exe同目录放置pac-url.ini，用户可以从自定义的地址更新pac.txt。pac-url.ini中第一行放地址即可
+* **过滤服务器**：ShadowsocksR.exe同目录放置excluded-servers.ini，订阅过程中，程序会可以根据文件中的关键词（每行一个词），匹配服务器的域名、IP或备注，如果有词匹配上（即contain），则不放入后续使用的服务器列表中
+
+
 #### Download
 
 You will need to download and install [7-Zip](http://www.7-zip.org/) in order 
@@ -66,4 +70,4 @@ Copyright © BreakWa11 2017. Fork from Shadowsocks by clowwindy
 
 [Appveyor]:       https://ci.appveyor.com/project/breakwa11/shadowsocksr-csharp
 [Build Status]:   https://ci.appveyor.com/api/projects/status/itcxnad1y95gf2x5/branch/master?svg=true
-[latest release]: https://github.com/shadowsocksr/shadowsocksr-csharp/releases
+[latest release]: https://github.com/godoorsun/shadowsocksr-csharp/releases
